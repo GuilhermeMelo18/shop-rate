@@ -41,7 +41,7 @@ public class ProductService {
         products.forEach(product -> {
             ProductDto productDto = productMapper.toProductDto(product);
             productDto.setPrice(product.getTotalPrice());
-            productPricesWrapper.addProductDtoList(productDto);
+            productPricesWrapper.addProductList(productDto);
             productPricesWrapper.addTotalPrices(product.getTotalPrice());
             productPricesWrapper.addTotalRatePrices(product.getTotalRatePrice());
         });

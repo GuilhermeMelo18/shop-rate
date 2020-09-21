@@ -9,21 +9,21 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductPricesWrapper {
 
-    private List<ProductDto> productDtoList;
+    private List<ProductDto> productList;
     private BigDecimal totalRatePrices;
     private BigDecimal totalPrices;
 
     public ProductPricesWrapper() {
-        this.productDtoList = new ArrayList<>();
+        this.productList = new ArrayList<>();
         this.totalPrices = BigDecimal.ZERO;
         this.totalRatePrices = BigDecimal.ZERO;
     }
 
-    public List<ProductDto> getProductDtoList() { return productDtoList; }
+    public List<ProductDto> getProductList() { return productList; }
 
-    public void setProductDtoList(List<ProductDto> productDtoList) { this.productDtoList = productDtoList; }
+    public void setProductList(List<ProductDto> productList) { this.productList = productList; }
 
-    public void addProductDtoList(ProductDto productDto) { this.productDtoList.add(productDto); }
+    public void addProductList(ProductDto productDto) { this.productList.add(productDto); }
 
     public BigDecimal getTotalPrices() { return totalPrices; }
 
