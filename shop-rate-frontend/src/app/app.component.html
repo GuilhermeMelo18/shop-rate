@@ -1,4 +1,4 @@
-<div class="toolbar" role="banner">
+<div class="row toolbar">
   <img
     width="40"
     alt="Angular Logo"
@@ -7,5 +7,52 @@
     <div class="spacer"></div>
 </div>
 
-<div class="content" role="main">
+<div class="row content">
+  <div class="col-sm-6">
+    <h4>Products</h4>
+    <div class="product-list">
+      <div class="card" *ngFor="let product of productList">
+        <div class="card-body">
+          <div>
+            <label class="card-title">{{product.name}}</label>
+          </div>
+          <div>
+            <label class="card-text">{{product.price | currency}}</label>
+            <button class="btn btn-primary add-bag-button" (click)="addProductToBag(product)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <label class="card-header-text">My Products Bag</label>
+    <i class="fa fa-shopping-bag fa-2x" aria-hidden="true" placement="top" ngbTooltip="Product added to bag"></i>
+    <div class="bag-product-list">
+      <div class="card" *ngFor="let product of bagProductList">
+        <div class="card-body">
+          <label class="card-title">{{product.name}}</label>
+          <label class="card-text">{{product.price | currency}}</label>      
+          <i class="fa fa-times card-click-icon" aria-hidden="true" placement="left" (click)="removeProductToBag(product)" ngbTooltip="Remove product from bag"></i>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary add-bag-button" (click)="calculateTotalProductsPrices()">Calculate total products prices</button>
+  </div>
 </div>
+
+<div class="row content" *ngIf="productPrices">
+  <div class="col-sm-12">
+    <label class="card-header-text">Products Prices Resume</label>
+    <i class="fa fa-shopping-bag fa-2x" aria-hidden="true" placement="top" ngbTooltip="Product added to bag"></i>
+    <div class="bag-product-list">
+      <div class="card" *ngFor="let product of productPrices.productList">
+        <div class="card-body">
+          <label class="card-title">{{product.name}}</label>
+          <label class="card-text">{{product.price | currency}}</label>      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
