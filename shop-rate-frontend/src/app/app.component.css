@@ -2,64 +2,96 @@
     flex: 1;
   }
 
-  .toolbar {
-    height: 60px;
-    margin: -8px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
+.toolbar {
+  height: 60px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
 
-  .toolbar img {
-    margin: 0 16px;
-  }
+.toolbar img {
+  margin: 0 16px;
+}
 
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
+.toolbar #twitter-logo {
+  height: 40px;
+  margin: 0 16px;
+}
 
-  .toolbar #twitter-logo:hover {
-    opacity: 0.8;
-  }
+.toolbar #twitter-logo:hover {
+  opacity: 0.8;
+}
 
-  .add-bag-button {
-    float: right;
-  }
+.add-bag-button {
+  float: right;
+}
 
-  .card-click-icon {
-    float: right;
-    cursor: pointer;
-  }
+.card-click-icon {
+  float: right;
+  cursor: pointer;
+}
 
-  .card-icon {
-    float: right;
-  }
+.card-icon {
+  float: right;
+}
 
-  .card-body {
-    padding: 10px;
-  }
-  
-  .content {
-    padding: 25px;
-  }
+.card-body {
+  padding: 10px;
+}
 
-  .product-list {
-    height: 400px;
-    overflow-y: auto;
-  }
+.content {
+  padding: 28px 28px 5px 28px;  
+}
 
-  .bag-product-list {
-    height: 370px;
-    overflow-y: auto;
-  }
+.header-content {
+  background-color: ghostwhite;
+  padding: 8px;
+  margin-bottom: 5px;
+}
 
-  .card-header-text {
-    margin-bottom: .5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: 1.5rem;
-    margin-right: 20px;
-  }
+.products-content {
+  border-right: 1px solid #d3d3d3;
+}
+
+.product-list {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.bag-product-list {
+  height: 370px;
+  overflow-y: auto;
+  margin-bottom: 5px;
+}
+
+.not-bag-products {
+  text-align: center;
+  height: 238px;
+  margin-top: 130px;
+  font-size: 20px;
+}
+
+.total-prices-resume {
+  margin-left: 15px;
+}
+
+.card-header-text {
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 23px;
+  margin-left: 10px;
+}
