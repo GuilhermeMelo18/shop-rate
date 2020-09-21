@@ -24,3 +24,42 @@
   .toolbar #twitter-logo:hover {
     opacity: 0.8;
   }
+
+  .add-bag-button {
+    float: right;
+  }
+
+  .card-click-icon {
+    float: right;
+    cursor: pointer;
+  }
+
+  .card-icon {
+    float: right;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+  
+  .content {
+    padding: 25px;
+  }
+
+  .product-list {
+    height: 400px;
+    overflow-y: auto;
+  }
+
+  .bag-product-list {
+    height: 370px;
+    overflow-y: auto;
+  }
+
+  .card-header-text {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.5rem;
+    margin-right: 20px;
+  }
