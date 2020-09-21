@@ -58,7 +58,7 @@ public class ShopRateApplication implements CommandLineRunner {
 			Product importedBottlePerfume = new Product("Imported Bottle of Perfume", BigDecimal.valueOf(47.50), Arrays.asList(cosmeticsProductRate, importedProductRate));
 			Product importedBottlePerfume2 = new Product("Imported Bottle of Perfume", BigDecimal.valueOf(27.99), Arrays.asList(cosmeticsProductRate, importedProductRate));
 			Product bottlePerfume = new Product("Bottle of Perfume", BigDecimal.valueOf(18.99), Collections.singletonList(cosmeticsProductRate));
-			Product packetHeadachePills	= new Product("Packet of Headache pills", BigDecimal.valueOf(10.75), Collections.singletonList(medicalProductRate));
+			Product packetHeadachePills	= new Product("Packet of Headache Pills", BigDecimal.valueOf(9.75), Collections.singletonList(medicalProductRate));
 			Product importedBoxChocolates2 = new Product("Imported Box of Chocolates", BigDecimal.valueOf(11.25), Arrays.asList(foodProductRate, importedProductRate));
 
 			productRepository.save(book);
