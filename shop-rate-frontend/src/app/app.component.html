@@ -1,23 +1,25 @@
 <div class="row toolbar">
   <img
     width="40"
-    alt="Angular Logo"
     src="https://www.imediabrasil.com.br/images/icones/icone_carrinho_vermelho.png"/>
   <span>SHOP RATE</span>
     <div class="spacer"></div>
 </div>
 
 <div class="row content">
-  <div class="col-sm-6">
-    <h4>Products</h4>
+  <div class="col-sm-6 products-content">
+    <div class="header-content">
+      <label class="card-header-text">Products</label>
+      <i class="fa fa-tag fa-2x" aria-hidden="true"></i>
+    </div>
     <div class="product-list">
       <div class="card" *ngFor="let product of productList">
         <div class="card-body">
           <div>
-            <label class="card-title">{{product.name}}</label>
+            <label class="product-name">{{product.name}}</label>
           </div>
           <div>
-            <label class="card-text">{{product.price | currency}}</label>
+            <label class="product-price">{{product.price | currency}}</label>
             <button class="btn btn-primary add-bag-button" (click)="addProductToBag(product)">Add to Bag</button>
           </div>
         </div>
@@ -26,13 +28,19 @@
   </div>
 
   <div class="col-sm-6">
-    <label class="card-header-text">My Products Bag</label>
-    <i class="fa fa-shopping-bag fa-2x" aria-hidden="true" placement="top" ngbTooltip="Product added to bag"></i>
-    <div class="bag-product-list">
+    <div class="header-content">
+      <label class="card-header-text">My Products Bag</label>
+      <i class="fa fa-shopping-bag fa-2x" aria-hidden="true" placement="top" ngbTooltip="Product added to bag"></i>
+    </div>
+    <div *ngIf="bagProductList?.length == 0" class="not-bag-products">
+      <i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i>
+      Add some product to your bag 
+    </div>
+    <div class="bag-product-list" *ngIf="bagProductList?.length">
       <div class="card" *ngFor="let product of bagProductList">
         <div class="card-body">
-          <label class="card-title">{{product.name}}</label>
-          <label class="card-text">{{product.price | currency}}</label>      
+          <label class="product-name">{{product.name}}</label>
+          <label class="product-price">{{product.price | currency}}</label>      
           <i class="fa fa-times card-click-icon" aria-hidden="true" placement="left" (click)="removeProductToBag(product)" ngbTooltip="Remove product from bag"></i>
         </div>
       </div>
@@ -41,15 +49,21 @@
   </div>
 </div>
 
-<div class="row content" *ngIf="productPrices">
-  <div class="col-sm-12">
-    <label class="card-header-text">Products Prices Resume</label>
-    <i class="fa fa-shopping-bag fa-2x" aria-hidden="true" placement="top" ngbTooltip="Product added to bag"></i>
+<div class="row content" *ngIf="productPrices?.productList.length">
+  <div class="col-sm-6 offset-sm-6">
+    <div class="header-content">
+      <label class="card-header-text">Products Prices Resume</label>
+      <i class="fa fa-usd fa-2x" aria-hidden="true" placement="top"></i>
+    </div>
+    <div class="total-prices-resume">
+      <div><label class="product-name"> Sales Taxes: </label> <label class="product-price">{{productPrices.totalRatePrices | currency}}</label></div>
+      <div><label class="product-name"> Total: </label> <label class="product-price">{{productPrices.totalPrices | currency}}</label></div>
+    </div>
     <div class="bag-product-list">
       <div class="card" *ngFor="let product of productPrices.productList">
         <div class="card-body">
-          <label class="card-title">{{product.name}}</label>
-          <label class="card-text">{{product.price | currency}}</label>      
+          <label class="product-name">{{product.name}}</label>
+          <label class="product-price">{{product.price | currency}}</label>      
         </div>
       </div>
     </div>
