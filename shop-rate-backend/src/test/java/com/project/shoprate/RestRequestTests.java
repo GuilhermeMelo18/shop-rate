@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
@@ -53,6 +54,17 @@ public class RestRequestTests {
                 ProductDto.class);
 
         assertProduct(productDto, postResponse.getBody());
+    }
+
+    @Test
+    public void save_product_without_required_product_rate_test() {
+
+        ProductDto productDto = new ProductDto(null, BigDecimal.valueOf(12.49), null);
+
+        ResponseEntity<ProductDto> postResponse = restTemplate.postForEntity(getRootUrl() + "/product", productDto,
+                ProductDto.class);
+
+        Assert.assertEquals(HttpStatus.BAD_REQUEST, postResponse.getStatusCode());
     }
 
     private void assertProduct(ProductDto product, ProductDto savedProduct) {
