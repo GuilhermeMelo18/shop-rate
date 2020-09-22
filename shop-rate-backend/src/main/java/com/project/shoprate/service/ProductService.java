@@ -35,13 +35,21 @@ public class ProductService {
                 .findAll(Specification.where(ProductSpecification.carriersInIds(queryParams.getIds())));
     }
 
+    public void delete (Long id) {
+        productRepository.deleteById(id);
+    }
+
+    public Product save (Product product) {
+        return productRepository.save(product);
+    }
+
     public ProductPricesWrapper getProductPrices(ProductQueryParams queryParams) {
 
         List<Product> products = find(queryParams);
         ProductPricesWrapper productPricesWrapper = new ProductPricesWrapper();
 
         products.forEach(product -> {
-            ProductDto productDto = productMapper.toProductDto(product);
+            ProductDto productDto = productMapper.toBasicDto(product);
             productDto.setPrice(product.getTotalPrice());
             productPricesWrapper.addProductList(productDto);
             productPricesWrapper.addTotalPrices(product.getTotalPrice());
