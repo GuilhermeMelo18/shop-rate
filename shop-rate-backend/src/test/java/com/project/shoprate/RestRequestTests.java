@@ -67,6 +67,21 @@ public class RestRequestTests {
         Assert.assertEquals(HttpStatus.BAD_REQUEST, postResponse.getStatusCode());
     }
 
+    @Test
+    public void save_product_without_required_fields_test() {
+
+        ProductRateDto productRateDto = productRateMapper.toDto(productRateRepository.findByProductType(ProductType.COSMETICS).get(0));
+        productRateDto.setRate(null);
+        productRateDto.setProductType(null);
+
+        ProductDto productDto = new ProductDto("Product", null, Collections.singletonList(productRateDto));
+
+        ResponseEntity<ProductDto> postResponse = restTemplate.postForEntity(getRootUrl() + "/product", productDto,
+                ProductDto.class);
+
+        Assert.assertEquals(HttpStatus.BAD_REQUEST, postResponse.getStatusCode());
+    }
+
     private void assertProduct(ProductDto product, ProductDto savedProduct) {
 
         Assert.assertNotNull(savedProduct);
