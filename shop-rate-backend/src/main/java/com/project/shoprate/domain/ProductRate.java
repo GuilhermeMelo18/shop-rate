@@ -1,7 +1,6 @@
 package com.project.shoprate.domain;
 
 import com.project.shoprate.util.StringPool;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,6 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@NoArgsConstructor
 public class ProductRate {
 
     @Id
@@ -33,6 +31,8 @@ public class ProductRate {
         this.rate = rate;
         this.productType = productType;
     }
+
+    public ProductRate() {}
 
     public Long getId() { return id; }
 
