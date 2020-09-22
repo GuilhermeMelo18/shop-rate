@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,6 +28,11 @@ public class ProductService {
     public List<Product> findAll () {
 
         return productRepository.findAll();
+    }
+
+    public Optional<Product> find (Long id) {
+
+        return productRepository.findById(id);
     }
 
     public List<Product> find(ProductQueryParams queryParams) {
