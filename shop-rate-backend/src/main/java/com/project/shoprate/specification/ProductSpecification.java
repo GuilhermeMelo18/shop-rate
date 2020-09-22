@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ProductSpecification {
 
-    public static Specification<Product> carriersInIds(List<String> ids) {
+    public static Specification<Product> carriersInIds(List<Long> ids) {
         return (root, query, cb) -> {
 
             List<Predicate> predicates = new ArrayList<>();
