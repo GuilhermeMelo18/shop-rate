@@ -6,14 +6,14 @@ import java.util.List;
 public class ProductQueryParams {
 
     @QueryParam("ids")
-    private List <String> ids;
+    private List <Long> ids;
 
     @QueryParam("name")
     private String name;
 
-    public List<String> getIds() { return ids; }
+    public List<Long> getIds() { return ids; }
 
-    public void setIds(List<String> ids) { this.ids = ids; }
+    public void setIds(List<Long> ids) { this.ids = ids; }
 
     public String getName() { return name; }
 
