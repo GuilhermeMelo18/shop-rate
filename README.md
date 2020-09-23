@@ -1,6 +1,6 @@
 # Shop Rate
 
-Web application to calculate product price according to the taxes charged for each product. The project front-end was implemented with Angular framework and project 
+Web application to calculate product prices according to taxes charged for each product. The project front-end was implemented with Angular framework and project 
 back-end with Spring Boot framework. The application use postgreSQL to data persistence.
 
 <img src="https://i.ibb.co/9G4Zh2N/b58bcb98-3694-47df-a7e0-15e870e0105e.jpg" alt="combate3" border="0" style="text-align:center;">
