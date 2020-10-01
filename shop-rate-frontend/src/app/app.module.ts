@@ -5,11 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { ProductService } from './services/product.service';
 import { ProductComponent } from './components/product/product.component';
-
-
 
 
 @NgModule({
@@ -21,7 +20,8 @@ import { ProductComponent } from './components/product/product.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

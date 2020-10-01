@@ -78,6 +78,11 @@
   margin-left: 15px;
 }
 
+.remove-product-icon {
+  float: right;
+  cursor: pointer;
+}
+
 .card-header-text {
   margin-bottom: .5rem;
   font-weight: 500;
@@ -94,4 +99,18 @@
 .product-price {
   font-size: 23px;
   margin-left: 10px;
+}
+
+.add-product-button {
+  margin-top: 31px;
+}
+
+.alert-message {
+  height: 45px;
+  margin: 22px;
+}
+
+.check-box-rate {
+  margin-right: 15px;
+  cursor: pointer;
 }
