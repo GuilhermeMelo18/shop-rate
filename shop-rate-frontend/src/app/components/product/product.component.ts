@@ -46,6 +46,7 @@ export class ProductComponent implements OnInit {
     try {
       await this.productService.save(this.productToSave).toPromise();
       this.getProductList();
+      this.saveErrors = undefined;
     } catch (error) {
      this.saveErrors = error;
     }

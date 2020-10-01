@@ -114,3 +114,8 @@
   margin-right: 15px;
   cursor: pointer;
 }
+
+.rate-list {
+  height: 172px;
+  overflow-y: scroll;
+} 
