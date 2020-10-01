@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { ProductPricesWrapper } from 'src/app/model/product-prices-wrapper';
+import { ProductRate } from 'src/app/model/product-rate';
 import { ProductQueryParams } from 'src/app/model/query-params/product-query-params';
+import { ProductRateService } from 'src/app/services/product-rate.service';
 import { ProductService } from 'src/app/services/product.service';
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -11,24 +12,65 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   productList: Array<Product>;
-
+  productRateList: Array<ProductRate>;
+  productToSave: Product;
   bagProductList: Array<Product>;
   productPrices: ProductPricesWrapper;
-
   productQueryParams: ProductQueryParams;
 
-  constructor(private productService: ProductService) {
+  saveErrors: any;
+
+  constructor(
+    private productService: ProductService,
+    private productRateService: ProductRateService
+    ) {
     this.bagProductList = new Array();
     this.productQueryParams = new ProductQueryParams();
+    this.productToSave = new Product();
   }
 
   ngOnInit() {
     this.getProductList();
+    this.getProductRateList();
   }
 
   async getProductList(): Promise<void> {
     this.productList = await this.productService.findAll().toPromise();
   }
+
+  async getProductRateList(): Promise<void> {
+    this.productRateList = await this.productRateService.findAll().toPromise();
+  }
+
+  async saveProduct(): Promise<void> {
+    try {
+      await this.productService.save(this.productToSave).toPromise();
+      this.getProductList();
+    } catch (error) {
+     this.saveErrors = error;
+    }
+  }
+
+  async removeProduct(id: string): Promise<void> {
+    await this.productService.remove(id).toPromise();
+    this.getProductList();
+  }
+
+  bindRateToProduct(check: boolean, productRate: ProductRate): void {
+    if (check) {
+      this.productToSave.productRateList.push(productRate);
+    } else {
+      this.removeRateFromProduct(productRate.id);
+    }
+  }
+
+  removeRateFromProduct(id: string) {
+    this.productToSave.productRateList = this.productToSave.
+    productRateList.filter(productRate => {
+        return productRate.id !== id;
+    });
+  }
+
   addProductToBag(product: Product): void {
 
       const foundBagProduct = this.bagProductList.find(bagProduct => bagProduct.id === product.id);
